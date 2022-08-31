@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <style>
+      canvas {
+        background-color: black;
+      }
+
+      button {
+        background-color: rgb(61, 61, 219);
+        border: none;
+        border-radius: 5em;
+        color: white;
+        padding: 1em;
+      }
+
+      button:hover {
+        background-color: rgb(238, 30, 30);
+      }
+    </style>
+  </head>
+  <!-- onloead TampilGame() berguna ketika halaman ini diload maka jalankan function TampilGame() -->
+  <body onload="TampilGame()">
+    <script>
+      // function TampilGame() berguna untuk memanggil variable object game
+      function TampilGame() {
+        document.getElementById("sapa").innerHTML = game.sapa;
+      }
+
+      // variable object yang berisi canvas
+      let game = {
+        canvas: document.createElement("canvas"),
+        sapa: "test",
+      };
+    </script>
+    <p id="sapa"></p>
+    <button>Ini Tombol</button>
+    <p>Kada tahu handak nulis apa</p>
+  </body>
+</html>
