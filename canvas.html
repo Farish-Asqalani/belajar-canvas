@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        background-color: rgb(41, 219, 41);
+      }
+
+      button {
+        margin: 1em;
+      }
+    </style>
+  </head>
+  <body onload="mulai()">
+    <canvas id="canvas" width="400" height="200"></canvas>
+    <br />
+    <button onclick="naik()">Naik</button>
+    <!-- <br /> -->
+    <button onclick="turun()">turun</button>
+    <!-- <br /> -->
+    <button onclick="kanan()">kanan</button>
+    <!-- <br /> -->
+    <button onclick="kiri()">kiri</button>
+
+    <script>
+      let c = document.getElementById("canvas");
+      let isi = c.getContext("2d");
+      let angkaY = 40;
+      let angkaX = 170;
+
+      function karakter() {
+        isi.beginPath();
+        isi.fillStyle = "red";
+        isi.arc(angkaY, angkaX, 20, 0, 2 * Math.PI);
+        isi.fill();
+        isi.closePath();
+
+        // isi.beginPath();
+        // isi.clearRect(20, 20, 100, 50);
+        // isi.closePath();
+      }
+
+      function mulai() {
+        return karakter();
+      }
+
+      function naik() {
+        angkaX -= 10;
+        isi.clearRect(0, 0, 400, 200);
+        return karakter();
+      }
+
+      function turun() {
+        angkaX += 10;
+        isi.clearRect(0, 0, 400, 200);
+        return karakter();
+      }
+      function kanan() {
+        angkaY += 10;
+        isi.clearRect(0, 0, 400, 200);
+        return karakter();
+      }
+      function kiri() {
+        angkaY -= 10;
+        isi.clearRect(0, 0, 400, 200);
+        return karakter();
+      }
+    </script>
+  </body>
+</html>
