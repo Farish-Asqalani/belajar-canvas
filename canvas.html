@@ -13,37 +13,62 @@
       button {
         margin: 1em;
       }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .tombol {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     </style>
   </head>
   <body onload="mulai()">
-    <canvas id="canvas" width="400" height="200"></canvas>
-    <br />
-    <button onclick="naik()">Naik</button>
-    <!-- <br /> -->
-    <button onclick="turun()">turun</button>
-    <!-- <br /> -->
-    <button onclick="kanan()">kanan</button>
-    <!-- <br /> -->
-    <button onclick="kiri()">kiri</button>
+    <div class="container">
+      <canvas id="canvas" width="400" height="200"></canvas>
+      <br />
+    </div>
+    <div class="tombol">
+      <button onclick="naik()">Naik</button>
+      <!-- <br /> -->
+      <button onclick="turun()">turun</button>
+      <!-- <br /> -->
+      <button onclick="kanan()">kanan</button>
+      <!-- <br /> -->
+      <button onclick="kiri()">kiri</button>
+    </div>
 
     <script>
       // tangkap canvas menggunakan id dan masukkan ke variable
       let c = document.getElementById("canvas");
       // context
       let isi = c.getContext("2d");
-      let angkaY = 40;
-      let angkaX = 170;
+      // untuk value x, y object lingkaran
+      // let y = 40;
+      // let x = 170;
+
+      // untuk value x, y object kotak
+      let y = 40;
+      let x = 120;
 
       function karakter() {
+        // object lingkaran
+        // isi.beginPath();
+        // isi.fillStyle = "red";
+        // isi.arc(y, x, 20, 0, 2 * Math.PI);
+        // isi.fill();
+        // isi.closePath();
+
+        // object kotak
         isi.beginPath();
-        isi.fillStyle = "red";
-        isi.arc(angkaY, angkaX, 20, 0, 2 * Math.PI);
+        isi.fillStyle = "blue";
+        isi.fillRect(y, x, 50, 50);
         isi.fill();
         isi.closePath();
-
-        // isi.beginPath();
-        // isi.clearRect(20, 20, 100, 50);
-        // isi.closePath();
       }
 
       function mulai() {
@@ -51,23 +76,23 @@
       }
 
       function naik() {
-        angkaX -= 10;
+        x -= 10;
         isi.clearRect(0, 0, 400, 200);
         return karakter();
       }
 
       function turun() {
-        angkaX += 10;
+        x += 10;
         isi.clearRect(0, 0, 400, 200);
         return karakter();
       }
       function kanan() {
-        angkaY += 10;
+        y += 10;
         isi.clearRect(0, 0, 400, 200);
         return karakter();
       }
       function kiri() {
-        angkaY -= 10;
+        y -= 10;
         isi.clearRect(0, 0, 400, 200);
         return karakter();
       }
